@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.image_file.label() }}
+                {{ form.image_file(class="form-control-file") }}
+                {% if form.image_file.errors %}
+                    {% for error in form.image_file.errors %}
+                 <span class="text-danger">{{ error }}</span><br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.main_ingredients.label(class="form-control-label") }}
+                        {{ form.main_ingredients }}
+            </div>
+            <div class="form-group">
+                    {{ form.side_ingredients.label(class="form-control-label") }}
+                        {{ form.side_ingredients }}
+            </div>
+            <div class="form-group">
+                {{ form.equipment.label(class="form-control-label") }}
+                {{ form.equipment }}
+            </div>
+            <div class="form-group">
+                    {{ form.preparation_time.label(class="form-control-label") }}
+                    {% if form.preparation_time.errors %}
+                        {{ form.preparation_time(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.preparation_time.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.preparation_time(class="form-control form-control-lg") }}
+                    {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <div class="form-field">{{ form.difficulty.label }} {{ form.difficulty }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

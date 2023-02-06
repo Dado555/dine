@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    <a class="mr-2" href="{{ url_for('user_recipes', username=recipe.author.username) }}">
+      <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + recipe.author.image_file) }}">
+    </a>
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{{ url_for('user_recipes', username=recipe.author.username) }}">{{ recipe.author.username }}</a>
+        <small class="text-muted">{{ recipe.date_posted.strftime('%d-%m-%Y') }}</small>
+        {% if recipe.author == current_user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_recipe', recipe_id=recipe.id) }}">Ažuriraj</a>
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Obriši</button>
+          </div>
+        {% endif %}
+      </div>
+      <br>
+      <img width="250" height="200" src="{{ url_for('static', filename='img/' + recipe.image_file) }}">
+      <br><br>
+      <h2 class="article-title">{{ recipe.title }}</h2>
+      <p class="article-content">{{ recipe.content }}</p>
+    <br>
+    <h4 class="article-title"> Težina spremanja </h4>
+    <p class="article-content">{{ recipe.difficulty }}</p>
+    <h4 class="article-title"> Potrebna oprema </h4>
+            {% for el in recipe.equipment %}
+    <p class="article-content">{{ el.name }}</p>
+            {% endfor %}
+    <h4 class="article-title"> Glavni sastojci </h4>
+      {% for el in recipe.main_ingredients %}
+    <p class="article-content">{{ el.name }}</p>
+      {% endfor %}
+    <h4 class="article-title"> Sporedni sastojci </h4>
+            {% for el in recipe.side_ingredients %}
+    <p class="article-content">{{ el.name }}</p>
+            {% endfor %}
+    <h4 class="article-title"> Vreme spremanja </h4>
+    <p class="article-content">{{ recipe.preparation_time }}</p>
+    <small class="text-muted">{{  recipe.view_counter }} prikaza recepta</small>
+   </div>
+  </article>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Obriši recept?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+          <form action="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Obriši">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

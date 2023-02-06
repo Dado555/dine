@@ -1,0 +1,263 @@
+body {
+  background: #212121;
+  color: #ffffff;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #efefef;
+}
+
+.bg-steel {
+  background-color: #6B7A8F;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #252525;
+  padding: 10px 20px;
+  border: 1px solid #484848;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #e0e0e0;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.logo{
+    width: 100px;
+    float: left;
+    display: inline-flex;
+}
+
+.logo img{
+    margin: auto -20px;
+    float: left;
+}
+
+.recipes-grid {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 20px;
+}
+
+.recipes-section {
+  background: #252525;
+  padding: 5px 10px;
+  border: 1px solid #2f2f2f;
+  border-radius: 18px;
+  height: 100%;
+  color: #eee;
+}
+
+.recipe-grid-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.recipe-row-image {
+    max-width: 100%;
+    max-height: 500px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform .5s ease;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.img-hover-zoom img:hover {
+    transform: scale(1.2);
+}
+
+article:hover .img-hover-zoom img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.mt-100 {
+    margin-top: 10px
+}
+
+.col-md-6 body{
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: #514B64;
+    min-height: 100vh
+}
+
+.inbl {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.bg-steel {
+	background-color: #2f3640;
+}
+
+.list-group-item-light {
+	background-color: #232323;
+	color: #b7b7b7;
+}
+
+.btn-info {
+	background-color: #1a474e;
+    border-color: #223538;
+}
+.btn-info:hover {
+	background-color: #2b6d77;
+}
+
+a {
+	color: #dedede;
+}
+a:hover {
+	color: #aaadb1;
+}
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #353535;
+}
+
+.form-control {
+    color: #dadada;
+    background-color: #1f1f1f;
+    border: 1px solid #484848;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.form-control:focus {
+    color: #dadada;
+    background-color: #191919;
+    border-color: #484848;
+}
+.border-top {
+    border-top: 1px solid #484848!important;
+}
+.border-bottom {
+    border-bottom: 1px solid #484848!important;
+}
+
+.choices__inner {
+    background-color: #1f1f1f;
+    border: 1px solid #484848;
+}
+
+.choices__input {
+    background-color: #1f1f1f;
+	color: #dadada;
+}
+
+.choices__list--dropdown {
+    background-color: #222222;
+    border: 1px solid #484848;
+}
+
+
+
+.is-focused .choices__inner, .is-open .choices__inner  {
+    background-color: #191919;
+    border-color: #484848;
+    color: #495057;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.is-focused .choices__inner .choices__input, .is-open .choices__inner .choices__input {
+    background-color: #191919;
+
+}
+
+.choices__list {
+	outline: none;
+	
+}
+
+.is-open .choices__list--dropdown {
+    border-color: #484848;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: #484848;
+}
+
+.choices__list--multiple .choices__item {
+    background-color: #005965;
+    border: 1px solid #415b5f;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #2b2b2b;
+    opacity: 1;
+}

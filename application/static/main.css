@@ -1,0 +1,163 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #6B7A8F;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.logo{
+    width: 100px;
+    float: left;
+    display: inline-flex;
+}
+
+.logo img{
+    margin: auto -20px;
+    float: left;
+}
+
+.recipes-grid {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 20px;
+}
+
+.recipes-section {
+  background: #ffffff;
+  padding: 5px 10px;
+  border: 1px solid #dddddd;
+  border-radius: 18px;
+  height: 100%;
+}
+
+.recipe-grid-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.recipe-row-image {
+    max-width: 100%;
+    max-height: 500px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform .5s ease;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.img-hover-zoom img:hover {
+    transform: scale(1.2);
+}
+
+article:hover .img-hover-zoom img {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.mt-100 {
+    margin-top: 10px
+}
+
+.col-md-6 body{
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: #514B64;
+    min-height: 100vh
+}
+
+.inbl {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.SelectMultipleField body{
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: #514B64;
+    min-height: 100vh
+}

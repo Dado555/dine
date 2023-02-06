@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="search" method="GET">
+        <br>
+        <div class="inbl">
+            <h2>Recepti</h2>
+        </div>
+        <div class="inbl">
+            <section class="search-sec">
+                <div class="container" style="width:900px">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                    <input type="text" class="form-control search-slt" placeholder="Traži..." name="query" id="query">
+                                </div>
+                                <div class="col-lg-2 col-md-3 col-sm-12 p-0">
+                                    <select class="form-control search-slt" disabled>
+                                        <option>Kategorija</option>
+                                        <option>
+                                          <a><p>&#9733; &#9733; &#9733; &#9733; &#x2606;</p></a href="#">
+                                        </option>
+                                        <option>
+                                            <a><p>&#9733; &#9733; &#9733; &#x2606; &#x2606;</p></a href="#">
+                                        </option>
+                                        <option>
+                                            <a><p>&#9733; &#9733; &#x2606; &#x2606; &#x2606;</p></a href="#">
+                                        </option>
+                                        <option>
+                                            <a><p>&#9733; &#x2606; &#x2606; &#x2606; &#x2606;</p></a href="#">
+                                        </option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-danger wrn-btn">Pretraga</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><br>
+        </div>
+    </form>
+    {% if recipes %}
+
+        {% for recipe in recipes.items %}
+            <article class="media content-section">
+                <a class="mr-2" href="{{ url_for('user_recipes', username=recipe.author.username) }}">
+                        <img class="rounded-circle article-img"
+                         src="{{ url_for('static', filename='profile_pics/' + recipe.author.image_file) }}"/>
+                </a>
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="{{ url_for('user_recipes', username=recipe.author.username) }}">{{ recipe.author.username }}</a>
+                        <small class="text-muted">{{ recipe.date_posted.strftime('%d-%m-%Y') }}</small>
+                    </div>
+                    <h2><a class="article-title" href="{{ url_for('recipe', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h2>
+
+                    <div>
+                        <div class="img-hover-zoom recipe-row-image">
+                            <a href="{{ url_for('recipe', recipe_id=recipe.id) }}"><img src="{{ url_for('static', filename='img/' + recipe.image_file) }}"></a>
+                        </div>
+
+                        <p class="article-content">{{ recipe.content }}</p>
+
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+            {% for page_num in recipes.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=2) %}
+                {% if page_num %}
+                    {% if recipes.page == page_num %}
+                        <a class="btn btn-info mb-4" href="{{ url_for('home', page = page_num) }}"> {{ page_num }} </a>
+                    {% else %}
+                        <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page = page_num) }}"> {{ page_num }} </a>
+
+                    {% endif %}
+
+                {% else %}
+                    ...
+                {% endif %}
+
+            {% endfor %}
+    {% else %}
+
+        <h4>Nema rezultata</h4>
+
+
+    {% endif %}
+
+
+{% endblock content %}
+
+{% block top_recipes %}
+    <h3>Top recepti</h3>
+    <div class="row">
+        {% for recipe in popular_recipes.items %}
+        <div class="col-sm-3 col-4 recipes-grid">
+            <a class="article-title" href="{{ url_for('recipe', recipe_id=recipe.id) }}">
+                <article class="recipes-section">
+                    <div class="img-hover-zoom">
+                        <img class="recipe-grid-image" src="{{ url_for('static', filename='img/' + recipe.image_file) }}">
+                    </div>
+                    <div class="media-body">
+                        <!--<div class="article-metadata">-->
+                        <!--&lt;!&ndash;<a class="mr-2" href="#">{{ recipe.author.username }}</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">{{ recipe.date_posted.strftime('%d-%m-%Y') }}</small>&ndash;&gt;-->
+                        <!--</div>-->
+                        <p>{{ recipe.title }}</p>
+                        <!--<p class="article-content">{{ recipe.content }}</p>-->
+                    </div>
+                </article>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock top_recipes %}
